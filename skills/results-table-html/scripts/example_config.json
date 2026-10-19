@@ -1,0 +1,20 @@
+{
+  "title": "My results table",
+  "groups": [
+    ["ident",   "Run",      ["run", "model"]],
+    ["quality", "Quality",  ["accuracy", "f1", "loss"]],
+    ["cost",    "Cost",     ["runtime_s"]],
+    ["setup",   "Settings", ["batch_size", "lr"]]
+  ],
+  "ident_widths":    [80, 160],
+  "higher_better":   ["accuracy", "f1"],
+  "lower_better":    ["loss", "runtime_s"],
+  "rate_as_percent": ["accuracy"],
+  "no_highlight":    ["batch_size", "lr"],
+  "formats": {
+    "loss":      "f3",
+    "f1":        "f3",
+    "runtime_s": "f1",
+    "lr":        "sci3"
+  }
+}
