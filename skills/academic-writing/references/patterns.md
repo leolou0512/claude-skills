@@ -1,7 +1,7 @@
 # Pattern catalogue
 
-Every pair below is a real edit from supplementary-information passes.
-Each pattern gives the tell (why an academic reader flags it), the rule, and the pairs.
+Each pattern gives the tell (why an academic reader flags it), the rule, and illustrative
+before and after pairs.
 
 Contents
 1. Everyday verbs for mathematical operations
@@ -20,7 +20,7 @@ Contents
 14. Sentence shape
 15. Scoreboard phrasing
 16. Imprecise quantities in formulas
-Judgement calls: what was deliberately left alone
+Judgement calls: what to leave alone
 
 ---
 
@@ -32,32 +32,31 @@ guess which operation is meant.
 **Rule.** Use the verb the field defines: maps, projects, computes, assigns, expresses in,
 leaves unchanged.
 
-- "the atom that $g$ carries onto site $j$" -> "the atom that $g$ maps onto site $j$"
-- "Clean coordinates carried into the noisy cell" -> "Clean coordinates expressed in the noisy cell"
-- "copied to the other atoms of the orbit" -> "mapped to the other atoms of the orbit"
-- "turns the deformation into ... the noise it implies" -> "computes the predicted clean cell ... then the predicted lattice noise"
+- "the vector that $A$ carries onto $\mathbf{y}$" -> "the vector that $A$ maps onto $\mathbf{y}$"
+- "coordinates carried into the new basis" -> "coordinates expressed in the new basis"
+- "copied to the other entries of the block" -> "assigned to the other entries of the block"
+- "turns the residual into a correction" -> "computes a correction from the residual"
 
 ## 2. Objects given agency or motion
 
-**Tell.** Atoms, orbits, constraints or crystals act ("keep", "draw", "tie", "receive",
-"enters", "respects", "sees"). It hides what the algorithm does and who does it.
+**Tell.** Variables, constraints, networks or samples act ("keep", "draw", "tie", "receive",
+"respects", "sees"). It hides what the algorithm does and who does it.
 **Rule.** Make the quantity the subject. Use the operation's verb. Use the passive when the actor
 is the algorithm.
 
-- "the atoms keep their fractional coordinates" -> "the fractional coordinates of the atoms are held fixed"
-- "Each revealed orbit draws one species for all its atoms from the orbit-averaged logits." -> "The element of each newly unmasked orbit is sampled from the orbit-averaged logits and assigned to all atoms of the orbit."
-- "Parameters that the crystal system ties together receive the same noise component, and angles it fixes receive none" -> "It assigns the same noise component to all cell lengths that the crystal system constrains to be equal, and zero noise to all angles that the crystal system fixes."
-- "Each crystal receives this prediction as $\pi$ with probability 0.5" -> "For each crystal, $\pi$ is set to this prediction with probability 0.5"
+- "the fixed entries keep their values" -> "the fixed entries are held constant"
+- "Each cluster draws one label from the averaged scores." -> "The label of each cluster is sampled from the averaged scores and assigned to all its members."
+- "Parameters that the constraint ties together receive the same update" -> "The same update is applied to all parameters that the constraint requires to be equal"
 - "which is all the network sees" -> "which is the only input to the network"
 
 ## 3. A picture instead of the guarantee
 
-**Tell.** An intuitive image ("move together", "stay on", "passes through") replaces a property
-that can be stated exactly. The image cannot be checked.
+**Tell.** An intuitive image ("settle down", "move together", "passes through") replaces a
+property that can be stated exactly. The image cannot be checked.
 **Rule.** State what the operator guarantees, in the paper's terms.
 
-- "so equivalent atoms move together and stay on their Wyckoff sites" -> "so the displacements of symmetry-equivalent atoms are related by the space-group operations and every atom remains on its Wyckoff site"
-- "A perturbation that already respects the crystal system passes through the projection unchanged." -> "The projection leaves unchanged any perturbation that already satisfies the constraints of the crystal system."
+- "so the iterates settle down" -> "so the iteration is a contraction and converges to a unique fixed point"
+- "A vector that already respects the constraint passes through the projection unchanged." -> "The projection leaves unchanged any vector that already satisfies the constraint."
 
 ## 4. Paraphrase of a concept that has a name
 
@@ -65,25 +64,21 @@ that can be stated exactly. The image cannot be checked.
 right.
 **Rule.** Use the field's term, preferably one the paper already uses.
 
-- "does not change under rotation, translation or reordering of the atoms" -> "is invariant under rotation, translation and permutation of the atoms"
-- "the symmetry operations that leave the orbit's representative atom in place" -> "the site-symmetry group of the orbit's representative atom"
-- "measured the shortest way round the periodic cell" -> "measured to the nearest periodic image"
-- "two orbits on a fixed position would overlap" -> "two orbits of a Wyckoff position without free parameters would occupy the same sites"
-- "these sites hold 9.1% of the atoms" -> "these sites are occupied by 9.1% of the atoms"
+- "does not change under rotation or reordering of the inputs" -> "is invariant under rotation and permutation of the inputs"
+- "the distribution the chain settles into" -> "the stationary distribution of the chain"
+- "the directions the matrix only stretches" -> "the eigenvectors of the matrix"
 
 ## 5. Lab slang for standard operations and objects
 
-**Tell.** Workshop words ("fresh noise", "draw", "reveal", "switch off", "generations") where
-the reader knows a standard term. Phrasal verbs for the state of a setting read as spoken lab
-talk.
+**Tell.** Workshop words ("fresh noise", "a draw", "blew up", "switch off") where the reader
+knows a standard term. Phrasal verbs for the state of a setting read as spoken lab talk.
 **Rule.** Use the standard term, the same one the rest of the document uses. Replace a phrasal
 verb with the single standard verb.
 
 - "inject fresh noise" -> "add newly sampled noise"
-- "reveal each masked orbit" -> "unmask each masked orbit"
-- "Standard normal draw for the lattice noise" -> "Standard normal vector for the lattice noise"
-- "so we switched it off when computing the stability metrics" -> "so we disabled it when computing the stability metrics"
-- "the insulating generations" -> "the insulating structures"
+- "a new draw from the prior" -> "a new sample from the prior"
+- "we threw out runs that blew up" -> "we excluded runs in which the loss diverged"
+- "so we switched it off during evaluation" -> "so we disabled it during evaluation"
 
 ## 6. Spatial metaphors for quantities
 
@@ -92,7 +87,7 @@ quantity.
 **Rule.** Name the quantity: limit, range, adjacent, intermediate.
 
 - "the upper edge of the labels" -> "the upper limit of the label range"
-- "together with its neighbours" -> "together with the adjacent bands"
+- "together with its neighbours" -> "together with the adjacent frequency bands"
 - "peaks in between" -> "peaks at intermediate values"
 
 ## 7. Slogans and loose causal glosses
@@ -101,9 +96,9 @@ quantity.
 states nothing checkable.
 **Rule.** State the concrete property the paper itself gives as the reason.
 
-- "We chose Cartesian coordinates deliberately, because the chemistry is set by distances in Ångström." -> "We diffuse Cartesian coordinates so that the noise scale is a real-space distance in Ångström."
-- "All atoms of an orbit must carry the same species, or the crystal loses its space group." -> "All atoms of a Wyckoff orbit must be of the same element for the crystal to be invariant under the operations of its space group."
-- "to preserve symmetry" -> "so that the crystal retains its space group"
+- "We normalised deliberately, because scale should not matter." -> "We normalise each feature to unit variance so that the penalty weights all features equally."
+- "Each row must sum to one, or the matrix breaks." -> "Each row must sum to one for the matrix to be a stochastic matrix."
+- "to preserve symmetry" -> "so that the operator remains self-adjoint"
 
 ## 8. Vague outcome and provenance words
 
@@ -112,11 +107,10 @@ without naming it.
 **Rule.** Name the quantity and the direction of change. Say what a number is. Use the metric's
 name.
 
-- "mainly due to stability drops" -> "mainly through a lower metastable fraction"
-- "so it needs more noise to be covered" -> "so a larger noise scale is needed for the wrapped noise distribution to become uniform along such a line"
-- "Measured mSUN comes from 2,500 new structures" -> "Measured mSUN is the rate among 2,500 new structures"
-- "The template VAE gives a cubic template" -> "The template VAE produces a cubic template"
-- "although performance remains below Chemeleon 2" -> "although mSUN remains below that of Chemeleon 2"
+- "mainly due to detection drops" -> "mainly through a lower recall"
+- "Measured accuracy comes from 2,000 test images" -> "Measured accuracy is the rate on the 2,000 test images"
+- "The encoder gives a code" -> "The encoder produces a code"
+- "although performance remains below the baseline" -> "although the F1 score remains below that of the baseline"
 
 ## 9. Conversational openers, idioms and fillers
 
@@ -124,9 +118,9 @@ name.
 spoken English ("in one shot", "on top", "anymore", "deliberately").
 **Rule.** State the fact and its condition literally. Delete fillers.
 
-- "Whatever the prior says, constrained angles are set to exactly 90° or 120°" -> "Angles fixed by the crystal system are set to exactly 90° or 120° independently of the prior"
-- "in one shot" -> "directly from the clean cell"
-- "already unmasked atoms will not switch states anymore" -> "since an unmasked orbit does not change state in the reverse process"
+- "Whatever the initialisation says, the bias terms are set to zero" -> "The bias terms are set to zero independently of the initialisation"
+- "in one shot" -> "in a single step"
+- "already visited states will not switch anymore" -> "since a visited state does not change in later iterations"
 
 ## 10. Descriptions that name a nearby object
 
@@ -134,28 +128,27 @@ spoken English ("in one shot", "on top", "anymore", "deliberately").
 an index as the thing it indexes, an adjective on the wrong noun.
 **Rule.** Check each description against the definition and name the exact object.
 
-- "Atoms in the cell" -> "Number of atoms in the cell"
-- "Periodic image; its wrapped-normal weight" -> "Index of a periodic image; its wrapped-normal weight"
-- "a small cross-entropy term" -> "an auxiliary cross-entropy term with a small weight"
-- "the decoder marginalised over $\mathbf{z}$" -> "the decoder marginalised over the prior on $\mathbf{z}$"
+- "Samples in the batch" -> "Number of samples in the batch"
+- "Class; its prior" -> "Index of a class; its prior probability"
+- "a small regularisation term" -> "a regularisation term with a small weight"
+- "the likelihood integrated over $\theta$" -> "the likelihood integrated over the prior on $\theta$"
 
 ## 11. Missing referents
 
 **Tell.** "this", "one", "the set", "the head", a bare "the median": several candidates fit.
 **Rule.** Replace the pronoun with its noun and reuse the paper's component names.
 
-- "where one was run" -> "where such a set exists"
-- "over the set" -> "over the fine-tuning set"
-- "the median for each target" -> "the median predicted permittivity for each target"
-- "from the head" -> "from the space-group MLP"
+- "over the set" -> "over the validation set"
+- "the median for each target" -> "the median predicted value for each target"
+- "from the head" -> "from the classification head"
 - "the softmax of the previous logits" -> "the softmax of the logits at the previous step"
 
 ## 12. A category word where the members are known
 
-**Tell.** "parameters" when only cell lengths are ever meant.
+**Tell.** "hyperparameters" when only two of them are ever meant.
 **Rule.** Name the exact set.
 
-- "Parameters that must be equal" -> "Cell lengths constrained to be equal"
+- "the hyperparameters were tuned" -> "the learning rate and batch size were tuned"
 
 ## 13. A defined term reused for another quantity
 
@@ -163,9 +156,9 @@ an index as the thing it indexes, an adjective on the wrong noun.
 second meaning elsewhere in the paper.
 **Rule.** Find where the paper defines a phrase before reusing it. Give each word one meaning.
 
-- "predicts a coordinate update $\hat{\mathbf{s}}_\theta$" -> "predicts the scaled coordinate target $\hat{\mathbf{s}}_\theta$" (the main text calls the step itself the coordinate update)
-- "The lattice head's prediction is scored as a noise estimate." -> "The lattice loss is computed on the noise estimate implied by the prediction of the lattice readout." ("scored" means evaluation elsewhere)
-- "$\gamma_{\mathrm{g}} = 1$ is the conditional model" -> "$\gamma_{\mathrm{g}} = 1$ recovers the conditional model"
+- "predicts an update $\hat{\mathbf{d}}$" -> "predicts the search direction $\hat{\mathbf{d}}$" (the paper calls the step itself the update)
+- "The prediction is scored against the target." -> "The loss is computed between the prediction and the target." ("scored" means evaluation elsewhere)
+- "$\lambda = 0$ is the unregularised model" -> "$\lambda = 0$ recovers the unregularised model"
 
 ## 14. Sentence shape
 
@@ -174,13 +167,12 @@ image; the activity as subject; loose comparatives; hard-to-parse reduced relati
 **Rule.** Split at the second fact. Delete a restatement. Put the actor first. Write "N times as
 long as" (strictly, "N times longer than" means N + 1). Use "as X decreases" for a trend.
 
-- "no retraining, and template sampling is about $10^3$ times cheaper" -> "no retraining. Template sampling is about $10^3$ times cheaper"
-- "Alex-MP-20, built from the Materials Project and Alexandria, has 607,683 ..." -> "Alex-MP-20 is built from the Materials Project and Alexandria. It has 607,683 ..."
-- Deleted: "The projection removes degrees of freedom but not the Gaussian character of the noise."
-- "Generating 2,500 structures takes our method 17.4 h, about three times longer than MatterGen" -> "Our method takes 17.4 h to generate 2,500 structures, about three times as long as MatterGen"
+- "no retraining, and inference is about $10^3$ times cheaper" -> "no retraining. Inference is about $10^3$ times cheaper"
+- "The dataset, built from two public archives, has 60,000 images" -> "The dataset is built from two public archives. It has 60,000 images"
+- Deleted: "The projection removes dimensions but not the Gaussian character of the noise."
+- "Training takes the model 17.4 h, about three times longer than the baseline" -> "The model takes 17.4 h to train, about three times as long as the baseline"
 - "With each step down in $\gamma$," -> "As $\gamma$ decreases,"
-- "the type logits the denoiser predicted for the atom" -> "the type logits predicted for the atom"
-- "the templates ... take about two minutes" -> "sampling the templates ... takes about two minutes"
+- "the logits the network predicted for the token" -> "the logits predicted for the token"
 
 ## 15. Scoreboard phrasing
 
@@ -188,8 +180,8 @@ long as" (strictly, "N times longer than" means N + 1). Use "as X decreases" for
 contest.
 **Rule.** Give the numbers side by side and let them speak.
 
-- "our relaxed method achieves an mSUN rate of 16.40%, exceeding MatterGen's 15.0% but remaining below Crystalite's 22.6%" -> "Our method achieves an mSUN rate of 16.40% after relaxation, compared with 15.0% for MatterGen and 22.6% for Crystalite"
-- "and ranks among the highest for validity and uniqueness" -> "and its validity and uniqueness are among the highest"
+- "our method achieves 86.4% accuracy, exceeding Baseline A's 85.0% but remaining below Baseline B's 91.2%" -> "our method achieves 86.4% accuracy, compared with 85.0% for Baseline A and 91.2% for Baseline B"
+- "and ranks among the highest for precision and recall" -> "and its precision and recall are among the highest"
 
 ## 16. Imprecise quantities in formulas
 
@@ -197,34 +189,31 @@ contest.
 misread as a different quantity.
 **Rule.** Use the symbol when it is already defined.
 
-- "with the single-step coefficient clipped at 0.999" -> "with $1 - \alpha_t$ clipped at 0.999"
+- "with the decay factor clipped at 0.999" -> "with $\beta$ clipped at 0.999"
 
 ---
 
-## Judgement calls: what was deliberately left alone
+## Judgement calls: what to leave alone
 
-Over-editing is a failure. These were considered and kept, with the reason.
+Over-editing is a failure. Leave these unchanged.
 
-- **Standard terms that look informal.** "generates" (group theory), "emits" letters, "mixing
-  coefficients", a mean that would "drift", "takes the DDPM mean step", "Gaussian latent",
-  "implied clean cell", "wrap", "smear", "corruption path", "unmodified clone" (a git checkout at
-  a named commit). Replacing expected jargon makes text less clear.
-- **Accurate plain English.** "levels off at 3.6 Å", "a masked orbit stays masked", "runs from
-  0.005", "come from an unmodified clone", "Three linear heads give the outputs", "follow the
-  prior within the bands", "global batch of 128". The test is whether a verb gives an object
-  intent or paints an image. These do neither.
-- **The paper's own words.** "falls" (the main text writes "validity falls to 60%"), "reachable
-  periodic copies". Keep a word the paper already uses, even if a synonym looks more formal.
-- **A symbol's definition in a notation table.** Changing "species" to "atom types" was reverted
-  because the main text defines the symbol as "atomic species". The table must match.
+- **Standard terms that look informal.** "generates" (group theory), "emits" (automata),
+  "mixing coefficients", a mean that "drifts", "wraps around" (periodic boundaries), "clone" (a
+  git checkout at a named commit). Replacing expected jargon makes text less clear.
+- **Accurate plain English.** "levels off at 0.3", "a masked entry stays masked", "runs from
+  0.005", "comes from an unmodified copy of the code", "global batch of 128". The test is whether
+  a verb gives an object intent or paints an image. These do neither.
+- **The paper's own words.** "falls" (when the main text writes "accuracy falls to 60%"). Keep a
+  word the paper already uses, even if a synonym looks more formal.
+- **A symbol's definition in a notation table.** If the main text defines a symbol as "class
+  label", the table says "class label", not a more formal synonym. The table must match.
 - **Approved wording.** Sentences the author approved word for word stay unless a word in them is
   clearly colloquial. Approval outranks a borderline taste call.
 - **Hedges and estimates.** "a counting error of about 0.9 points", "the likely cause of the low
-  validity". A rewording can shift the hedge.
-- **Missing facts.** "physically plausible density and cell" is vague, but the thresholds are not
-  in the paper, so it was flagged, not fixed. The DiffCSP++ correction step was not renamed
-  "Langevin" because the paper never says so. "idempotent" was not introduced for "leaves
-  unchanged", because it adds a claim. An attention mechanism that could not be checked in the
-  code was not reworded.
-- **Tables and specification sections.** Telegraphic table entries ("Lattice schedule, variance
-  preserving") are fine. A settings section can legitimately need two edits in a hundred lines.
+  score". A rewording can shift the hedge.
+- **Missing facts.** "physically plausible" is vague, but if the thresholds are not in the paper,
+  flag it rather than fix it. Do not give a step a technical name the paper never uses. Do not
+  introduce "idempotent" for "leaves unchanged", because it adds a claim. Do not reword a
+  mechanism you could not check in the code.
+- **Tables and specification sections.** Telegraphic table entries ("Learning-rate schedule,
+  cosine") are fine. A settings section can legitimately need two edits in a hundred lines.

@@ -16,13 +16,8 @@ description: >
 
 # Academic writing
 
-Built from five agents' passes over a paper's supplementary information, after the
-co-author's verdict that the text was "colloquial rather than technical or precise" (the
-co-author's examples: "Whatever the prior says", "Parameters that the crystal system ties together",
-"because the chemistry is set by distances in Ångström", "atoms of an orbit must carry the same
-species", with "carry is a horrendous word"). Every before and after pair in the style rules is
-real, from that work. The narrative section adds the launch principle (发布会原则), a writing
-guideline.
+Two layers. The style rules make each sentence precise. The launch principle decides what the
+paper argues and in what order. All examples are illustrative.
 
 ## What "academic" means here
 
@@ -42,37 +37,37 @@ correct result.
 - Use the field's verb for an operation: maps, projects, computes, assigns, is expressed in,
   never carries, copies, turns into, gets, ties. The field's verb carries its definition.
 - Use the named concept, not a description of it: "invariant under" not "does not change
-  under", "site-symmetry group" not "the operations that leave the atom in place". A paraphrase
-  is longer and only approximately right.
+  under", "eigenvectors" not "the directions the matrix only stretches". A paraphrase is longer
+  and only approximately right.
 - Name the quantity, not a picture of it: limit, range, adjacent, intermediate, not edge,
   neighbours, in between. The reader otherwise rebuilds the picture to recover the quantity.
-- Name the exact object: "number of atoms" not "atoms", "cell lengths" not "parameters" when
-  only lengths are meant, "structures" not "generations".
+- Name the exact object: "number of samples" not "samples", "learning rate" not
+  "hyperparameters" when only the learning rate is meant.
 - Give every "this", "one", "the set", "it" a referent when more than one thing fits.
 
-**Do not give objects agency or motion.** Atoms do not "keep", orbits do not "draw", constraints
-do not "tie", "see" or "respect", crystals do not "receive". Make the quantity the subject, use
-the operation's verb, and use the passive when the actor is the algorithm. Agency language hides
-what the method computes.
+**Do not give objects agency or motion.** Variables do not "keep" values, constraints do not
+"tie", "see" or "respect", a network does not "look at" its input, a sample does not "receive" a
+label. Make the quantity the subject, use the operation's verb, and use the passive when the
+actor is the algorithm. Agency language hides what the method computes.
 
-**State the guarantee, not the image.** "so the displacements of symmetry-equivalent atoms are
-related by the space-group operations" instead of "so equivalent atoms move together". The
-image is unverifiable; the property is checkable.
+**State the guarantee, not the image.** "so the iteration is a contraction and converges to a
+unique fixed point" instead of "so the iterates settle down". The image is unverifiable; the
+property is checkable.
 
-**Justify with the stated property, never a slogan.** "We diffuse Cartesian coordinates so that
-the noise scale is a real-space distance in Ångström", not "because the chemistry is set by
-distances". A slogan sounds persuasive and states nothing a referee can check.
+**Justify with the stated property, never a slogan.** "We normalise each feature to unit
+variance so that the penalty weights all features equally", not "because scale should not
+matter". A slogan sounds persuasive and states nothing a referee can check.
 
-**Say which quantity changes and in which direction.** "through a lower metastable fraction",
-not "due to stability drops". Say what a number is ("the rate among 2,500 new structures"), not
-where it "comes from". Replace "performance" with the metric.
+**Say which quantity changes and in which direction.** "through a lower recall", not "due to
+detection drops". Say what a number is ("the accuracy on the 2,000 test images"), not where it
+"comes from". Replace "performance" with the metric.
 
 **Shape sentences for a top-to-bottom reader.** One fact per sentence; split at the second fact.
 Claim first, mechanism second. Delete a sentence that restates its neighbour as an image. Make
-the actor the subject ("our method takes 17.4 h to generate", not "Generating takes our method"). Write
-"three times as long as", not "three times longer than". Replace phrasal verbs (switch off, turn
-on, set up) with the single standard verb (disable, enable, configure). Drop fillers and idioms
-(in one shot, on top, anymore, deliberately, of course).
+the actor the subject ("The solver takes 4.2 h to converge", not "Converging takes the solver
+4.2 h"). Write "three times as long as", not "three times longer than". Replace phrasal verbs
+(switch off, turn on, set up) with the single standard verb (disable, enable, configure). Drop
+fillers and idioms (in one shot, on top, anymore, deliberately, of course).
 
 **Stay consistent with the paper itself.** Before choosing a word, grep the paper for where the
 concept is defined and reuse that exact phrase. Give each word one meaning (if "scored" means
@@ -80,12 +75,11 @@ evaluation elsewhere, do not use it for a loss). A notation table repeats the ma
 definition of each symbol, whatever a general rule prefers. Agree a vocabulary change across the
 whole paper before making it in one section.
 
-**Banned constructions** (a house style, and the usual LLM tells): em dashes and "--";
-colons inside prose sentences; rhetorical semicolons; "While X, Y" openers; "not only ... but
-also"; "Furthermore" chains; sentences opening with "Because" or a bare maths symbol; scoreboard
-words (beats, outperforms, exceeds X but remains below Y, ranks among, strongest, SOTA);
-overclaims; delve, leverage, crucial, pivotal, seamless, notably, underscore, paradigm, novel
-framework.
+**Banned constructions** (the usual LLM tells): em dashes and "--"; colons inside prose
+sentences; rhetorical semicolons; "While X, Y" openers; "not only ... but also"; "Furthermore"
+chains; sentences opening with "Because" or a bare maths symbol; scoreboard words (beats,
+outperforms, exceeds X but remains below Y, ranks among, strongest, SOTA); overclaims; delve,
+leverage, crucial, pivotal, seamless, notably, underscore, paradigm, novel framework.
 
 ## Narrative: the launch principle (发布会原则)
 
@@ -103,9 +97,9 @@ support it. A reader keeps one claim per paper.
 
 **2. Argue, do not narrate the process.** Not "we first tried X, then Y, which failed". Present
 the final method and justify each component by what it provides. A failed variant becomes an
-ablation stated as a requirement ("Removing the projection lowers validity from A% to B%"), not
-a story ("Without the projection, our early attempts failed"). Chronology says what was done.
-The argument says why it works.
+ablation stated as a requirement ("Removing the normalisation step lowers accuracy from A% to
+B%"), not a story ("Without normalisation, our early attempts failed"). Chronology says what was
+done. The argument says why it works.
 
 **3. No self-weakening wording.** Delete "unfortunately", "only" and "merely" as judgements,
 "still clearly behind", "limited effect", "fails to". Do not summarise the weaknesses for the
@@ -114,7 +108,7 @@ qualify how certain a fact is, while "unfortunately" judges the work. Remove the
 never the number.
 
 **4. Do not stage a contest on a metric the method cannot win.** Make the comparison on the
-axis the method is designed for (for example exact symmetry, cost or controllability), and
+axis the method is designed for (for example a guarantee, cost or data efficiency), and
 introduce that axis as the paper's stated objective. Guardrail: the standard benchmark metrics,
 computed with their canonical protocol, stay in the tables for every baseline. Changing the
 comparison basis means adding a justified axis and applying it to all methods, never removing or
@@ -125,8 +119,9 @@ recomputing the standard one.
 a fact the paper states. If the paper states no such reason, flag it. Never invent one.
 
 **6. State every advantage explicitly.** Do not leave the referee to find it in a table. Write
-the quantity and the margin ("an mSUN rate 1.4 points above that of MatterGen") or the property
-no compared method has. Scoreboard words stay banned. The quantity carries the claim.
+the quantity and the margin ("an accuracy 1.4 points above that of the strongest baseline") or
+the property no compared method has. Scoreboard words stay banned. The quantity carries the
+claim.
 
 **7. Every experiment has an argumentative job.** For each experiment, write the claim it
 supports in one sentence. No claim means propose removing it or moving it to the appendix, and
@@ -143,10 +138,10 @@ requires states the scope the method is designed for and the next step, not an a
 
 ## What to leave alone
 
-- Accurate plain English. "levels off at 3.6 Å", "a masked orbit stays masked", "come from an
-  unmodified clone" are exact. Replacing them is restyling, not correcting.
+- Accurate plain English. "levels off at 0.3", "a masked entry stays masked", "comes from an
+  unmodified copy of the code" are exact. Replacing them is restyling, not correcting.
 - Standard jargon that only looks informal: "generates" in the group-theory sense, "emits",
-  "mixing coefficients", "wrap", "smear", "unmodified clone", "Gaussian latent".
+  "mixing coefficients", "wraps around", "clone" in the git sense.
 - A word the main text already uses, even if a synonym looks more formal ("falls").
 - Wording the author approved, hedged claims and estimates ("a counting error of about 0.9
   points", "the likely cause"). A rewording can shift a hedge. Self-weakening judgements are not
@@ -159,8 +154,7 @@ requires states the scope the method is designed for and the next step, not an a
 
 ## Workflow
 
-1. **Read the brief before the text.** Read the project's style guide, if one exists,
-   first. Read any
+1. **Read the brief before the text.** Read the project's style guide, if one exists. Read any
    co-author comment and write down the general pattern it objects to, so the read is a targeted
    scan rather than a restyle. Decide the expected edit volume (low for a settings or table-heavy
    section).
@@ -176,14 +170,15 @@ requires states the scope the method is designed for and the next step, not an a
    (ulem breaks otherwise). Never put display maths, `\label`, `\begin`/`\end`, `\item` or
    `\caption` inside a mark; marks go inside a caption's text. Do not add or remove lines.
 5. **Verify.** Rejecting every mark must reproduce the original text, and no number, reference,
-   citation or label may change (a symbol such as $1 - \alpha_t$ replacing a phrase adds a "1";
-   explain any such hit). Diff against the snapshot to confirm only the intended lines moved.
-   Reread every accepted sentence.
+   citation or label may change (a symbol such as $1 - p$ replacing a phrase adds a "1"; explain
+   any such hit). Diff against the snapshot to confirm only the intended lines moved. Reread
+   every accepted sentence.
 6. **Merge onto the live file.** Pull, then three-way merge (`git merge-file current snapshot
    edited`) so concurrent co-author edits survive. Conflicts next to edited lines are usually a
    co-author's added comment; keep both the edited line and their comment.
 7. **Check the revision macros.** If `\add`/`\del` are commented out in the preamble, the marked
-   workflow is off: apply the edits as clean text rather than re-enabling the macros. Compile and check for undefined references and "??".
+   workflow is off: apply the edits as clean text rather than re-enabling the macros. Compile and
+   check for undefined references and "??".
 8. **Report.** A changelog of `line N: "old" -> "new" (reason, six words or fewer)`, a list of
    phrases considered and left with the reason, and flags for anything that needs the author
    (missing facts, protocol mismatches, missing citations, launch-principle violations that a
@@ -192,7 +187,7 @@ requires states the scope the method is designed for and the next step, not an a
 ## One-line rules
 
 1. Name the operation, not an everyday action (maps, not carries).
-2. Name the object, not the activity (structures, not generations).
+2. Name the exact object (number of samples, not samples).
 3. Name the quantity, not a spatial picture (upper limit, not upper edge).
 4. Use the field's term for a property instead of describing it.
 5. No object acts: make the quantity the subject.
@@ -216,6 +211,5 @@ requires states the scope the method is designed for and the next step, not an a
 ## Reference
 
 `references/patterns.md` has the full catalogue: sixteen patterns, each with its tell, the rule
-and real before and after pairs, followed by the judgement calls that were deliberately left
-unchanged and why. Read it when running a style pass, or when a sentence feels wrong and you want
-the matching pattern.
+and before and after pairs, followed by the judgement calls to leave unchanged and why. Read it
+when running a style pass, or when a sentence feels wrong and you want the matching pattern.
