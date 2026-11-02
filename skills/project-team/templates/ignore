@@ -1,0 +1,6 @@
+# Copy to ~/<repo>/.ignore: hides bulk files from rg / Grep / Glob (not from git; Read still works).
+team/research/
+docs/research/
+**/generated/
+dist/
+.data/
