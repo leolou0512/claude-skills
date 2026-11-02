@@ -10,7 +10,6 @@
 | `skills/bedtime` | Keeps Claude and your GPUs working overnight, with a report ready in the morning. |
 | `skills/qu` | Three-heading status update: running, results, needs you. |
 | `skills/grill-me` | Claude questions you about a plan until every decision is settled. |
-| `skills/results-table-html` | Turns a CSV of results into one sortable HTML table. |
 | `output-styles/caveman.md` | Short replies, answer first. |
 
 ## Install
