@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 # Opens named Claude sessions for this project in tmux (own socket, clean env).
-# Run on the project machine, any terminal (user) or from the coordinator session:
-#   bash ~/__REPO__/team/launch.sh            # coordinator + all parts
-#   bash ~/__REPO__/team/launch.sh 3 5        # only parts 3 and 5
-#   bash ~/__REPO__/team/launch.sh coord      # only coordinator
+# Run on the project machine, any terminal (the user) or from the coordinator session:
+#   bash ~/__REPO__/__TEAM_DIR__/launch.sh            # coordinator + all parts
+#   bash ~/__REPO__/__TEAM_DIR__/launch.sh 3 5        # only parts 3 and 5
+#   bash ~/__REPO__/__TEAM_DIR__/launch.sh coord      # only coordinator
 # Watch: tmux -L __PROJ__ attach -t __PROJ__   (sessions also appear in the Claude app via remote control)
 # Repo folder must already be trusted by Claude Code (it is if the brainstorm agent ran there), else each window stops at the trust prompt.
 set -euo pipefail
 PROJ="__PROJ__"
 ROOT="$HOME/__REPO__"
+TEAM="$ROOT/__TEAM_DIR__"             # team folder (default team)
 PARTS=(__PART_NUMBERS__)            # e.g. (1 2 3 4 5 6)
 MODE="${MODE:-auto}"                # permission mode
 EXTRA="${EXTRA:-}"                  # e.g. EXTRA="--model opus --effort medium"
@@ -33,8 +34,8 @@ open() {  # $1 window, $2 session name, $3 first prompt
   echo "opened $w → \"$name\""
 }
 
-part_prompt() { echo "You are $PROJ part $1. Load skill project-team, read $ROOT/team/TEAM.md and your brief $ROOT/team/parts/P$(printf %02d "$1")_*.md, then follow worker.md."; }
-coord_prompt="You are the $PROJ coordinator. Load skill project-team, read $ROOT/team/TEAM.md, then follow coordinator.md."
+part_prompt() { echo "You are $PROJ part $1. Load skill project-team, read $TEAM/TEAM.md, $TEAM/RULES.md and your brief $TEAM/parts/P$(printf %02d "$1")_*.md, then follow worker.md."; }
+coord_prompt="You are the $PROJ coordinator. Load skill project-team, read $TEAM/TEAM.md and $TEAM/RULES.md, then follow coordinator.md."
 
 want=("$@"); [ ${#want[@]} -eq 0 ] && want=("${PARTS[@]}" coord)
 for x in "${want[@]}"; do

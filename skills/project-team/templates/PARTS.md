@@ -1,6 +1,6 @@
 # PARTS: __PROJ__
 
-## Parts
+## Parts (= ownership map: owned paths disjoint; each shared file has one owner)
 | Part | Name | Owns (paths) | Size | Brief |
 |---|---|---|---|---|
 | 1 | skeleton + shared types | `packages/shared`, repo root | S | `parts/P01_skeleton.md` |

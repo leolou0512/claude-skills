@@ -4,8 +4,8 @@ Needs: __NEEDS__ (or "none: start now") · Unblocks: __UNBLOCKS__
 Team: lead + __K__ subagents (__WHY__) · Stand-ins until needs land: __STANDINS__
 
 ## Read first
-1. `~/__REPO__/team/SCOPE.md` (all), `docs/INTERFACES.md` §…
-2. `~/__REPO__/team/research/NN_x.md` §… (exact sections; nothing broad)
+1. `~/__REPO__/__TEAM_DIR__/SCOPE.md` (all), `docs/INTERFACES.md` §…
+2. `~/__REPO__/__TEAM_DIR__/research/NN_x.md` §… (exact sections; nothing broad)
 
 ## Goal
 <2–4 lines>
@@ -32,4 +32,4 @@ Team: lead + __K__ subagents (__WHY__) · Stand-ins until needs land: __STANDINS
 - 
 
 ## Done
-All steps merged to main, STATUS row `done`, final `DONE` to coordinator.
+All steps merged to main, each package you own has its `CLAUDE.md`, BOARD line `done`, final `DONE` to coordinator.

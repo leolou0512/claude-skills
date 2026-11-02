@@ -4,7 +4,7 @@ Every agent reads this first. Conflicts: this file > research > your own judgeme
 ## Goal
 <2–4 lines: what it is, who uses it, what "done" means>
 
-## User decided
+## the user decided
 | Item | Decision | Date |
 |---|---|---|
 | | | |

@@ -1,0 +1,11 @@
+{
+  "crossSessionInbound": "accept",
+  "hooks": {
+    "PostToolUse": [
+      {"matcher": "Read|Edit|Write|Bash", "hooks": [{"type": "command", "command": "python3 $HOME/.claude/skills/project-team/scripts/sub_ctx_guard.py"}]}
+    ],
+    "SessionStart": [
+      {"matcher": "compact", "hooks": [{"type": "command", "command": "python3 $HOME/.claude/skills/memtree/memtree.py __TEAM_ABS__/memory --depth 2; echo 'Compacted. The summary is lossy: this memory tree holds the detail. Open a node with memtree.py <path>; open files before relying on the summary.'"}]}
+    ]
+  }
+}
